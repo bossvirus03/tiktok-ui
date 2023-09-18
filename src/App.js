@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import { publicRoute } from '~/routes';
-import { DefaultLayout } from '~/components/layout';
+import { DefaultLayout } from '~/components/Layouts';
 import { Fragment } from 'react';
 function App() {
     const routes = useRoutes(
@@ -16,8 +16,9 @@ function App() {
                 path: route.path,
                 element: (
                     <div>
-                        <Layout />
-                        <Page />
+                        <Layout>
+                            <Page />
+                        </Layout>
                     </div>
                 ),
             };

@@ -3,7 +3,7 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
-import HeaderOnly from '~/components/layout/HeaderOnly';
+import HeaderOnly from '~/components/Layouts/HeaderOnly';
 const publicRoute = [
     { path: '/', component: Home },
     { path: '/following', component: Following },

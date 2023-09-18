@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/components/layout/index.js
+src/components/layout/components/Header/index.js
+src/components/layout/DefaultLayout/index.js
+src/components/layout/DefaultLayout/Sidebar/index.js
+src/components/layout/HeaderOnly/index.js
+src/components/Layouts/index.js
+src/components/Layouts/DefaultLayout/Sidebar/Sidebar.module.scss
