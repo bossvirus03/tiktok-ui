@@ -3,13 +3,48 @@ import style from './Header.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faCircleXmark,
+    faEarthAfrica,
+    faEllipsisVertical,
+    faKeyboard,
+    faMoon,
+    faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import Menu from '~/components/Popper/Menu';
+
 const cx = classNames.bind(style);
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAfrica}></FontAwesomeIcon>,
+        title: 'Trung tâm LIVE',
+        to: '',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faEarthAfrica}></FontAwesomeIcon>,
+        title: 'Tiếng Việt',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
+        title: 'Phản Hồi và trợ giúp',
+        to: '',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard}></FontAwesomeIcon>,
+        title: 'Phím tắt',
+        to: '',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>,
+        title: 'Chế độ tối',
+    },
+];
 function Header() {
     const [searchResults, setSearchResults] = useState([]);
     useEffect(() => {
@@ -17,6 +52,7 @@ function Header() {
             setSearchResults([]);
         }, 3000);
     }, []);
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -24,7 +60,7 @@ function Header() {
                     <img src={images.logo} alt="TikTok"></img>
                 </div>
                 <Tippy
-                    interactive={true}
+                    interactive
                     visible={searchResults.length > 0} //show hide
                     render={(attrs) => (
                         <div className={cx('search-results')} tabIndex="-1" {...attrs}>
@@ -55,6 +91,11 @@ function Header() {
                         Upload
                     </Button>
                     <Button primary>Log in</Button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('menu-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
