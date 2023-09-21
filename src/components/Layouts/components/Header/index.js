@@ -3,8 +3,9 @@ import style from './Header.module.scss';
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import Button from '~/components/Button';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
@@ -13,7 +14,7 @@ function Header() {
     const [searchResults, setSearchResults] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            setSearchResults([1, 3, 4, 5]);
+            setSearchResults([]);
         }, 3000);
     }, []);
     return (
@@ -39,7 +40,7 @@ function Header() {
                     )}
                 >
                     <div className={cx('search')}>
-                        <input placeholder="Tìm kiếm" spellCheck={false}></input>
+                        <input placeholder="Search account or videos" spellCheck={false}></input>
                         <button className={cx('clear')}>
                             <FontAwesomeIcon icon={faCircleXmark}></FontAwesomeIcon>
                         </button>
@@ -49,7 +50,12 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button outline_black leftIcon={<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>}>
+                        Upload
+                    </Button>
+                    <Button primary>Log in</Button>
+                </div>
             </div>
         </header>
     );
