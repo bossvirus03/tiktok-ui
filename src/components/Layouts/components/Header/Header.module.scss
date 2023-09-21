@@ -18,11 +18,13 @@
 }
 .logo {
 }
-
+.search,
+.search-results {
+    width: 504px;
+}
 .search {
     position: relative;
     height: var(--search-height);
-    width: 504px;
     background-color: rgb(241, 241, 242);
     border-radius: var(--search-border-radius);
     border: 1.5px solid transparent;
@@ -57,7 +59,13 @@
         border: 1.5px solid rgba(22, 24, 35, 0.2);
     }
 }
-
+.search-title {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.75);
+    padding: 5px 12px 3px;
+}
 .clear,
 .loading {
     position: absolute;
