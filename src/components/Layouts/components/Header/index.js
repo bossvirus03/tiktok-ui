@@ -20,6 +20,7 @@ import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(style);
+
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAfrica}></FontAwesomeIcon>,
@@ -29,6 +30,13 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAfrica}></FontAwesomeIcon>,
         title: 'Tiếng Việt',
+        children: {
+            title: 'language',
+            data: [
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'vi', title: 'Tiếng Việt' },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
@@ -45,6 +53,7 @@ const MENU_ITEMS = [
         title: 'Chế độ tối',
     },
 ];
+
 function Header() {
     const [searchResults, setSearchResults] = useState([]);
     useEffect(() => {
@@ -52,7 +61,9 @@ function Header() {
             setSearchResults([]);
         }, 3000);
     }, []);
-
+    const handleMenuchange = (menuItem) => {
+        console.log(menuItem);
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -91,7 +102,7 @@ function Header() {
                         Upload
                     </Button>
                     <Button primary>Log in</Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onchange={handleMenuchange}>
                         <button className={cx('menu-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
                         </button>
